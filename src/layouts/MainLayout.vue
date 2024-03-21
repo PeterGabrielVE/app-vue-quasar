@@ -37,6 +37,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useStore } from 'vuex';
+
 import EssentialLink from 'components/EssentialLink.vue';
 import { linksList } from '../router/link-list';
 
@@ -45,7 +47,8 @@ defineOptions({
 });
 
 const leftDrawerOpen = ref(false);
-
+const store = useStore();
+console.log(store.state.ui.isSideMenuOpen);
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
